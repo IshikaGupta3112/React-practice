@@ -1,0 +1,33 @@
+*{
+  margin:0px;
+  padding:0px;
+  /* overflow:hidden; */
+}
+
+body {
+  font-family: 'McLaren', cursive;
+  background-color: rgb(241, 241, 239);
+}
+header{
+background-color:#f5ba13;
+padding:2vh;
+color:white;
+box-shadow: 0px 2px 10px rgb(150, 148, 148);
+}
+footer {
+position :absolute;
+width:100%;
+bottom:0;
+  text-align: center;
+  color:rgb(172, 170, 170);
+  font-size: 3vh;
+}
+#note{
+ width:33%;
+ padding:2vh;
+ margin:5vh;
+ box-shadow: 2px 3px 4px rgb(186, 185, 185);
+  background-color: white;
+ 
+}
+
