@@ -3,6 +3,15 @@ import reactDom from "react-dom";
 import "./index.css";
 import * as pi from "./Math.jsx";
 import * as calc from "./Calculator.jsx";
+import Card from './Card.jsx';
+import contacts from "./contacts.js";
+import Heading from "./Heading.jsx";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 const fname="Ishika";
 const lname="Gupta";
@@ -30,7 +39,9 @@ const img ="https://picsum.photos/200";
 const style={color:"red",fontSize:"20px"};
 style.color="blue";
 
-reactDom.render(<div>
+reactDom.render(
+<Router><div>
+  
   <h1 className='heading' contentEditable='true'>Hello {fname+" "+lname}!</h1>
   <h1>Hello {fname} {lname}!</h1>
  <h1>Hello {`${fname} ${lname}`}!</h1>
@@ -54,4 +65,34 @@ reactDom.render(<div>
     {pi.default}<br />
 {pi.doublepi()}<br />
 {pi.triplepi()}
-</div>,document.getElementById('root'));
+<h1>Props uses</h1>
+
+
+<Card 
+name ={contacts[2].name}
+tel={contacts[2].tel}
+email={contacts[2].email}
+img={contacts[2].img}
+/>
+
+<Routes>
+          <Route path="/card" element={<Card 
+name ={contacts[0].name}
+tel={contacts[0].tel}
+email={contacts[0].email}
+img={contacts[0].img}
+/>} />
+          <Route path="/" element={<Heading />} />
+        </Routes>
+        <Link to="/card">Show card</Link>
+        <Card 
+name ={contacts[1].name}
+tel={contacts[1].tel}
+email={contacts[1].email}
+img={contacts[1].img}
+/>
+{/* <Card name="Pearl V Puri" tel="9897666545" email="pearlvpuri@gmail.com" img="https://static.toiimg.com/thumb/resizemode-4,width-1200,height-900,msid-81409651/81409651.jpg"/>
+<Card name="Arijit Singh" tel="123456" email="arijitsng@gmail.com" img="https://m.media-amazon.com/images/M/MV5BMTNmMTQ2YzMtYzU0MS00NTI2LTk3MTgtOTI5MDgyNDc3ZDFkXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg"/>
+<Card name="Siddhart Shukla" tel="123456789" email="sidshuk@gmail.com" img="https://pbs.twimg.com/profile_images/1313071873375326208/EzR9z1P8_400x400.jpg"/> */}
+</div>
+</Router>,document.getElementById('root'));
