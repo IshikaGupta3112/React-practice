@@ -23,6 +23,28 @@ function createEmoji(emojipedia){
   des={emojipedia.des}
   />);
 }
+
+// filter function 
+
+var num=[1 , 2 , 4 , 5 , 9 , 13];
+
+// 1 way
+
+// function numbers(num){
+//   return num>10;
+//   }
+// const newn=num.filter(numbers);
+// console.log(newn);
+
+
+// another way
+
+const newn=num.filter(function(num){
+  return num>10;
+  });
+console.log(newn);
+
+
 // function createCard(contacts){
 //   return (<Card 
 //     key={contacts.id}
@@ -58,11 +80,10 @@ function createEmoji(emojipedia){
 // const style={color:"red",fontSize:"20px"};
 // style.color="blue";
 
-reactDom.render(
-  <div className="emojis">
-  {emojipedia.map(createEmoji)};
-  </div>
-
+// reactDom.render(
+  // <div className="emojis">
+  // {emojipedia.map(createEmoji)};
+  // </div>
 // {/* <Router>
 //   <div>
   
@@ -125,4 +146,4 @@ reactDom.render(
 // <Card name="Siddhart Shukla" tel="123456789" email="sidshuk@gmail.com" img="https://pbs.twimg.com/profile_images/1313071873375326208/EzR9z1P8_400x400.jpg"/> */}
 // </div>
 // </Router> */}
-,document.getElementById('root'));
+// ,document.getElementById('root'));
