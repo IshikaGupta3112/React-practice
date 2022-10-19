@@ -1,0 +1,29 @@
+*{
+margin :0;
+padding:0;
+box-sizing: border-boxx;
+}
+body{
+    background-color: aliceblue;
+}
+.term{
+    background-color: white;
+    /* width:30%;    */
+    margin:3vh; 
+    padding:1vh;
+}
+dt{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+dd{
+    text-align: center; 
+}
+#emoji{
+    font-size: 10vh;
+}
+.emojis{
+    display:flex;
+}
