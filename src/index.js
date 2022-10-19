@@ -23,10 +23,14 @@ function createEmoji(emojipedia){
   des={emojipedia.des}
   />);
 }
-
-// filter function 
-
 var num=[1 , 2 , 4 , 5 , 9 , 13];
+//reduce function accumulates a value by doing something to each value
+const sum=num.reduce(function(acc , num){
+  return acc+num;
+})
+console.log(sum);
+
+// filter function helps to filter elements meeting a specific condition
 
 // 1 way
 
@@ -37,12 +41,28 @@ var num=[1 , 2 , 4 , 5 , 9 , 13];
 // console.log(newn);
 
 
-// another way
+// another way using arrow function
 
-const newn=num.filter(function(num){
-  return num>10;
-  });
+//arrow function replace function by => and if it has single parameter remove brackets and if it has to return only one line code then remove return 
+
+const newn=num.filter(num=> num>10);
 console.log(newn);
+
+
+//find function helps to find the first element matching the condition
+
+const finds=num.find(function(num){
+  return num <10;
+});
+console.log(finds);
+
+//findIndex function helps to find the index of first element meeting the cond
+const finds2=num.findIndex(function(num){
+  return num <10;
+});
+console.log(finds2);
+
+
 
 
 // function createCard(contacts){
