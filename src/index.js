@@ -2,8 +2,10 @@ import react from "react";
 import reactDom from "react-dom";
 import Text from './Text.jsx';
 import State from './State.jsx';
-
-reactDom.render(<State />,document.getElementById('root'));
+import Time from './Time.jsx';
+reactDom.render(<div><State />
+<Time />
+</div>,document.getElementById('root'));
 
 // declarative
 // var decor=false;
