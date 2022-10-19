@@ -1,7 +1,24 @@
 import react from "react";
 import reactDom from "react-dom";
-import Login from './Login.jsx';
-reactDom.render(<Login />,document.getElementById('root'));
+import Text from './Text.jsx';
+import State from './State.jsx';
+
+reactDom.render(<State />,document.getElementById('root'));
+
+// declarative
+// var decor=false;
+// const strike={textDecoration:'line-through'};
+// reactDom.render(<p style={(decor)?strike:null}>buy milk</p>,document.getElementById('root'));
+
+//imperative
+// reactDom.render(<Text />,document.getElementById('root'));
+// var count=0;
+// function clicks(){
+//   console.log('hey');
+// }
+// reactDom.render(<button onClick={clicks}>{count}</button>,document.getElementById('root'));
+// import Login from './Login.jsx';
+// reactDom.render(<Login />,document.getElementById('root'));
 // import "./index.css";
 // import "./Entry.css";
 // import Entry from './Entry.jsx';
