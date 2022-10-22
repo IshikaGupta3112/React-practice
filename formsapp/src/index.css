@@ -47,8 +47,15 @@ button{
 padding:2vw;
 }
 p{
-  color:red;
+  color:rgb(233, 89, 89);
   text-align: left;
   font-weight: bold;
   padding-bottom:2vh;
+}
+.signed{
+  color:green;
+  text-align:center;
+  position:absolute;
+  font-size:3vh;
+
 }

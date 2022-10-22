@@ -11,7 +11,7 @@ function App(){
 
     const [errors,setErrors]=react.useState({});
 
-    // const[isSubmit , setIsSubmit]=react.useState(false);
+    const[isSubmit , setIsSubmit]=react.useState(false);
     function handleInput(event){
     const name=event.target.name;
     const value=event.target.value;
@@ -23,7 +23,7 @@ function App(){
        setRecord([...record , newRecord]);
        console.log(record);
        setErrors(validate(userReg));
-    //    setIsSubmit(true);
+       setIsSubmit(true);
     }
     // react.useEffect(()=>{
     //     console.log(errors);
@@ -40,8 +40,17 @@ function App(){
     if(!values.email){
         error.email ='Email is required!';   
        }
+    //    else if(!regex.test(values.email)){
+    //     error.email ='invalid mail!';   
+    //    }
     if(!values.password){
         error.password ='Password is required!';   
+       }
+       else if(values.password.length<4){
+        error.password ='Password must be more than 4 characters!';   
+       }
+       else if(values.password.length>8){
+        error.password ='Password cannot exceed 8 characters!';   
        }
     if(!values.phone){
         error.phone ='Phone is required!';   
@@ -53,6 +62,7 @@ return (<div id='container'>
         <h1>Registration Form</h1>
     </div>
     <div id='forms'>
+      {Object.keys(errors).length === 0 && isSubmit?( <div className='signed'>Signed in successfully!</div>):(null)}
         <form action='' onSubmit={handleSubmit}>
             <div id='labels'>
             <div className='inputs'>
