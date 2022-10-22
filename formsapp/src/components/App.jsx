@@ -6,17 +6,47 @@ function App(){
         phone:"",
         password:""
     })
+
     const [record , setRecord]= react.useState([]);
+
+    const [errors,setErrors]=react.useState({});
+
+    // const[isSubmit , setIsSubmit]=react.useState(false);
     function handleInput(event){
     const name=event.target.name;
     const value=event.target.value;
-    setuserReg({...userReg,[name]:value});
+    setuserReg({...userReg,[name]:value});  
     }
     function handleSubmit(event){
         event.preventDefault();
         const newRecord ={userReg};
        setRecord([...record , newRecord]);
        console.log(record);
+       setErrors(validate(userReg));
+    //    setIsSubmit(true);
+    }
+    // react.useEffect(()=>{
+    //     console.log(errors);
+    //     if(Object.keys(errors).length === 0 && isSubmit){
+    //         console.log(userReg);
+    //     }
+    // },[errors])
+    function validate(values){
+    const error={};
+    // const regex = '^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$' ;
+    if(!values.username){
+     error.username ='Username is required!';   
+    }
+    if(!values.email){
+        error.email ='Email is required!';   
+       }
+    if(!values.password){
+        error.password ='Password is required!';   
+       }
+    if(!values.phone){
+        error.phone ='Phone is required!';   
+       }
+       return error;
     }
 return (<div id='container'>
     <div id='heading'>
@@ -33,6 +63,7 @@ return (<div id='container'>
             onChange={handleInput}>
             </input>
             </div>
+            <p>{errors.username}</p>
             <div className='inputs'>
             <label htmlFor="email">Email</label>
             <input 
@@ -41,6 +72,7 @@ return (<div id='container'>
             onChange={handleInput}>
             </input>
             </div>
+            <p>{errors.email}</p>
             <div className='inputs'>
             <label htmlFor="phone">Phone No.</label>
             <input 
@@ -49,6 +81,7 @@ return (<div id='container'>
             onChange={handleInput}>
             </input>
             </div>
+            <p>{errors.phone}</p>
             <div className='inputs'>
             <label htmlFor="password">Password</label>
             <input 
@@ -57,6 +90,7 @@ return (<div id='container'>
             onChange={handleInput}>
             </input>
             </div>
+            <p>{errors.password}</p>
             <button type='submit'>Register</button>
             </div>
         </form>

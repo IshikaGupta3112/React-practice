@@ -46,3 +46,9 @@ button{
 #labels{
 padding:2vw;
 }
+p{
+  color:red;
+  text-align: left;
+  font-weight: bold;
+  padding-bottom:2vh;
+}
