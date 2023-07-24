@@ -5,6 +5,7 @@ import './App.css';
 import Post from './features/posts/post';
 import AddPostForm from './features/posts/addPostForm';
 import Home from './features/LazyLoad/Home';
+import Counter2 from './features/custom hook/counter';
 // import About from './features/LazyLoad/About';
 
 const LazyAbout = React.lazy(()=>import('./features/LazyLoad/About'));
@@ -18,6 +19,7 @@ function App() {
      <Post/></>}></Route>
      <Route path='/counter' exact element={<Counter />}></Route>
      <Route path='/' exact element={<Home />}></Route>
+     <Route path='/counter2' exact element={<Counter2 />}></Route>
      <Route path='/about' exact element={
      <React.Suspense fallback={<div>Loading...</div>}>
      <LazyAbout />
