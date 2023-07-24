@@ -12,13 +12,7 @@ const AddPostForm = () => {
     const dispatch = useDispatch();
     const savedPost = () => {
         if(title && content){
-            dispatch(postAdded({
-                userId:userId,
-                id:nanoid(),
-                title,
-                content,
-                date:new Date().toISOString()
-            }));
+            dispatch(postAdded(title,content,userId));
             setTitle('');
             setContent('');
         }
