@@ -1,0 +1,16 @@
+// Nesting
+
+nav{
+    ul{
+        color:pink;
+    }
+    h1{
+        color:blue;
+    }
+    p{
+        color:red;
+        &:hover{
+            color:blue;
+        }
+    }
+}

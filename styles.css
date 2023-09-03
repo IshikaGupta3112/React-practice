@@ -1,0 +1,161 @@
+nav ul {
+  color: pink; }
+
+nav h1 {
+  color: blue; }
+
+nav p {
+  color: red; }
+  nav p:hover {
+    color: blue; }
+
+#div1 {
+  border: 2px solid black; }
+
+#div2 {
+  border: 1px solid black; }
+
+#first {
+  height: 300px;
+  width: 200px;
+  border-radius: 10px;
+  background-color: red; }
+
+#second {
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  background-color: blue; }
+
+#third {
+  height: 200px;
+  width: 100px;
+  border-radius: 10px;
+  background-color: green; }
+
+.first, .second, .third, #interpolateDiv {
+  background-color: black;
+  height: 100px;
+  width: 200px;
+  padding: 4px;
+  border-radius: 20px; }
+
+.second {
+  background-color: blue; }
+
+.third {
+  background-color: pink; }
+
+body {
+  font-family: 'Courier New', Courier, monospace; }
+
+h1 {
+  color: blue;
+  font-size: 25px; }
+
+span {
+  color: blue; }
+
+#halfDiv {
+  background-color: brown;
+  width: 600px; }
+
+#One-thirdDiv {
+  background-color: green;
+  width: 400px; }
+
+#One-fourthDiv {
+  background-color: yellow;
+  width: 300px; }
+
+a.abc.xyz {
+  width: 10px; }
+
+.text {
+  font-weight: 500;
+  font-weight: "regular", "medium", "bold";
+  font-weight: 400, 500, 700;
+  font-weight: "regular", "medium", "bold", "lightest", "lighter", "light";
+  font-weight: "regular", "bold";
+  font-weight: false;
+  font-weight: "bold" 700; }
+
+body {
+  background-color: yellow; }
+
+@media screen and (max-width: 1300px) {
+  body {
+    background-color: green; } }
+
+@media screen and (max-width: 1000px) {
+  body {
+    background-color: red; } }
+
+@media screen and (max-width: 800px) {
+  body {
+    background-color: green; } }
+
+#first {
+  width: 1400px; }
+  @media screen and (max-width: 1000px) {
+    #first {
+      width: 700px; } }
+  @media screen and (max-width: 700px) {
+    #first {
+      width: 300px; } }
+
+.item {
+  background-color: pink; }
+  .item-wrapper {
+    color: pink; }
+  .getclasss {
+    color: blue; }
+
+#text {
+  color: red; }
+
+.list-1 {
+  width: 100;
+  background-color: #ff8da1; }
+
+.list-2 {
+  width: 200;
+  background-color: #ff5a77; }
+
+.list-3 {
+  width: 300;
+  background-color: #ff274d; }
+
+.normal {
+  font-weight: normal; }
+
+.bold {
+  font-weight: bold; }
+
+.italic {
+  font-weight: italic; }
+
+.normal {
+  font-weight: normal;
+  font-size: 40px; }
+
+.bold {
+  font-weight: bold;
+  font-size: 12px; }
+
+.italic {
+  font-weight: italic;
+  font-size: 30px; }
+
+pad-10 {
+  padding-left: 10px; }
+
+pad-20 {
+  padding-left: 20px; }
+
+pad-30 {
+  padding-left: 30px; }
+
+#interpolateDiv {
+  margin-left: 200px;
+  background-color: pink; }

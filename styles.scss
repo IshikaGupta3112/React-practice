@@ -1,0 +1,251 @@
+@import 'variable';
+@import 'nav';
+@import 'div';
+
+// mixins
+
+@mixin dimensions($rad:5px , $wid:50px, $hgt:50px){
+    height:$hgt;
+    width:$wid;
+    border-radius: $rad;
+}
+
+#first{
+    @include dimensions(10px,200px ,300px );
+    background-color: red;
+    }
+    #second{
+        @include dimensions(); //if no parameters given then default is used
+        background-color: blue;
+    }
+    #third{
+        @include dimensions(10px,100px ,200px );
+        background-color: green;
+    }
+    
+// extends
+
+.first{
+    background-color: black;
+    height: 100px;
+    width: 200px;
+    padding:4px;
+    border-radius: 20px;
+}
+.second{
+    background-color: blue;
+    @extend .first
+}
+
+.third{
+    background-color: pink;
+    @extend .first
+}
+
+
+
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1{
+    color:$main-color;
+    font-size: 25px;
+}
+
+span{
+    color:$main-color;
+}
+
+
+// Function And mixins are similar only difference is that function returns value and mixins don't
+
+$full-width:1200;
+
+@function half($width){
+    @return $width/2 + px;
+}
+@function third($width){
+    @return $width/3 + px;
+}
+@function fourth($width){
+    @return $width/4+ px;
+}
+
+#halfDiv{
+background-color: brown;
+width:half($full-width);
+}
+#One-thirdDiv{
+background-color: green;
+width:third($full-width);
+}
+#One-fourthDiv{
+background-color: yellow;
+width:fourth($full-width);
+}
+
+// Selector Function
+
+// $selector:selector-nest("ul" , "li");
+// $selector:selector-nest(".abc" , "p");
+// $selector:selector-nest(".abc" , "&:hover");
+
+// $selector:selector-append(".abc" ,":hover");
+
+// $selector:selector-replace("a.abc" , ".abc" ,".link");
+
+// $selector:is-superselector("a" , "a.active");
+
+// $selector:simple-selectors("a.abc");
+
+$selector:selector-unify("a.abc" , "a.xyz");
+
+#{$selector}{
+    width:10px;
+}
+
+//map function
+
+$font-weight:("regular":400 , "medium":500 ,"bold":700);
+$light-weight:("lightest":400 , "lighter":500 ,"light":700);
+$merge:map-merge($font-weight,$light-weight);
+$mr:map-remove($font-weight , "medium");
+
+.text{
+    font-weight: map-get($font-weight , "medium");
+    font-weight: map-keys($font-weight);
+    font-weight: map-values($font-weight);
+    font-weight: map-keys($merge);
+    font-weight: map-keys($mr);
+    font-weight: map-has-key($mr , "medium");
+    font-weight: nth($mr ,2);
+}
+
+// Content Directive
+
+@mixin medias($width){
+    @media screen and (max-width:$width){
+        @content
+    }
+}
+body{
+    background-color : yellow;
+}
+
+@include medias(1300px){
+    body{
+    background-color : green;
+    }
+};
+
+@include medias(1000px){
+    body{
+    background-color : red;
+    }
+};
+
+@include medias(800px){
+    body{
+    background-color : green;
+    }
+};
+// @mixin bd-radius($value){
+//     border-radius: $value;
+//     border-width: $value;
+//     width:$value;
+//     @content
+//     }
+
+// #text{
+//     @include bd-radius(50px){
+//         height:30px;
+//     }
+// }
+
+// Media derictive
+
+#first{
+    width:1400px;
+
+    @media screen and (max-width:1000px) {
+        width:700px;
+    }
+    @media screen and (max-width:700px) {
+        width:300px;
+    }
+}
+
+// At root directive
+
+.item{
+    background-color: pink;
+    @at-root{
+    .item-wrapper{
+        color:pink;
+    }
+    .getclasss{
+        color:blue;
+    }
+}
+}
+
+// if-else
+
+$text:5;
+
+#text{
+    @if $text>5{color:blue}
+    @else if $text<10 and $text>4{color:red}
+    @else{
+        color:pink
+    }
+}
+
+// For loop
+
+@for $i from 1 through 3{
+    .list-#{$i}{
+        width:100*$i;
+        background-color: darken(pink , $i*10%);
+    }
+}
+
+// each
+
+@each $i in (normal, bold, italic){
+    .#{$i}{
+        font-weight: $i;
+    }
+}
+@each $i,$f-size in (normal:40px, bold:12px, italic:30px){
+    .#{$i}{
+        font-weight: $i;
+        font-size:$f-size
+    }
+}
+
+// while
+
+$i:10;
+
+@while $i<40{
+pad-#{$i}{
+    padding-left:$i*1px
+}
+$i:$i+10;
+}
+
+// Sting concatenation + can be used only in values that is right side but not on left side but for left side
+// we can use Interpolation #{}
+
+// Interpolation 
+
+@mixin divs($position , $val){
+    margin-#{$position}:$val+px
+}
+#interpolateDiv{
+@include divs(left,200);
+background-color: pink;
+@extend .first
+}
