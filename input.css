@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+/* .btn{
+    @apply m-16  p-3 rounded-lg
+} */
+@tailwind utilities;
+
+ /* layer directive chipka deti h css after the layer u write */
+ @layer components{
+    .btn{
+        @apply m-16  p-3 rounded-lg
+    } 
+ }
